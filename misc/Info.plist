@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>metaworld</string>
+	<key>CFBundleIconFile</key>
+	<string>metaworld-icon.icns</string>
+	<key>CFBundleName</key>
+	<string>metaworld</string>
+	<key>CFBundleDisplayName</key>
+	<string>metaworld</string>
+	<key>CFBundleIdentifier</key>
+	<string>net.metaworld.metaworld</string>
+	<key>NSHighResolutionCapable</key>
+	<false/>
+</dict>
+</plist>

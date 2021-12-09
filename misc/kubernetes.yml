@@ -1,0 +1,53 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: metaworld
+  name: metaworld
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: metaworld
+  template:
+    metadata:
+      labels:
+        app: metaworld
+    spec:
+      containers:
+      - image: registry.gitlab.com/metaworld/metaworld/server:master
+        name: metaworld
+        ports:
+        - containerPort: 30000
+          protocol: UDP
+        volumeMounts:
+        - mountPath: /var/lib/metaworld
+          name: metaworld-data
+        - mountPath: /etc/metaworld
+          name: config
+      restartPolicy: Always
+      volumes:
+      - name: metaworld-data
+        persistentVolumeClaim:
+          claimName: metaworld-data
+      - configMap:
+          defaultMode: 420
+          name: metaworld
+        name: config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: metaworld
+  name: metaworld
+  namespace: default
+spec:
+  ports:
+  - name: metaworld
+    port: 30000
+    protocol: UDP
+  selector:
+    app: metaworld
+  type: NodePort

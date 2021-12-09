@@ -1,0 +1,2 @@
+rootProject.name = "metaworld"
+include ':app', ':native'
